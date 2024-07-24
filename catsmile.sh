@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wget -O loader.sh https://raw.githubusercontent.com/catsmile100/swisstronik-catsmile/main/load.sh && chmod +x loader.sh && ./loader.sh
+wget -O load.sh https://raw.githubusercontent.com/catsmile100/swisstronik-catsmile/main/load.sh && chmod +x load.sh && ./load.sh
 sleep 4
 
 sudo apt-get update && sudo apt get upgrade -y
@@ -118,7 +118,7 @@ async function main() {
   const contractFactory = await hre.ethers.getContractFactory("Swisstronik");
   const contract = contractFactory.attach(contractAddress);
   const functionName = "setMessage";
-  const messageToSet = "send Message from swisstronik";
+  const messageToSet = "Hello Swisstronik from Happy Cuan Airdrop!!";
   const setMessageTx = await sendShieldedTransaction(signer, contractAddress, contract.interface.encodeFunctionData(functionName, [messageToSet]), 0);
   await setMessageTx.wait();
   console.log("Transaction Receipt: ", setMessageTx);
